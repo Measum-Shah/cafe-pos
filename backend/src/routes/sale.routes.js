@@ -1,16 +1,16 @@
 import express from "express";
 import * as saleController from "../controllers/sale.controller.js";
-import {authMiddleware} from "../middlewares/auth.middleware.js";
+import { adminMiddleware, authMiddleware } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-// Any logged-in user can create a sale
+// Create sale (any logged-in user)
 router.post("/", authMiddleware, saleController.createSale);
 
-// Admin can view all sales
-router.get("/", authMiddleware, saleController.getSales);
+// Get all sales
+router.get("/", authMiddleware,adminMiddleware, saleController.getSales);
 
 // Get single sale
-router.get("/:id", authMiddleware, saleController.getSaleById);
+router.get("/:id", authMiddleware,adminMiddleware, saleController.getSaleById);
 
 export default router;

@@ -1,10 +1,10 @@
 import * as categoryService from "../services/category.service.js";
 
-// Create a new category or subcategory
+// Create a new category
 export const createCategory = async (req, res) => {
   try {
-    const { name, parentCategory } = req.body;
-    const category = await categoryService.createCategory({ name, parentCategory });
+    const { name } = req.body; // only name is needed now
+    const category = await categoryService.createCategory({ name });
     res.status(201).json({ message: "Category created successfully", category });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -31,4 +31,3 @@ export const deleteCategory = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-

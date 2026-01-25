@@ -1,12 +1,11 @@
 import express from "express";
 import * as categoryController from "../controllers/category.controller.js";
-import {authMiddleware} from "../middlewares/auth.middleware.js"; // protect routes
+import { authMiddleware} from "../middlewares/auth.middleware.js"; // assume adminMiddleware exists
 
 const router = express.Router();
 
-// Only admin can create categories
+// Admin-only routes
 router.post("/", authMiddleware, categoryController.createCategory);
-// Only admin can delete category
 router.delete("/:id", authMiddleware, categoryController.deleteCategory);
 
 // Any logged-in user can view categories

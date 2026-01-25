@@ -15,13 +15,13 @@ export const getSalesReport = async (req, res) => {
 export const getSalesReportPDF = async (req, res) => {
   try {
     const { startDate, endDate } = req.query;
-    const { filePath, totalAmount } = await reportService.generateSalesReportPDF(
+
+    const filePath = await reportService.generateSalesReportPDF(
       startDate,
-      endDate,
-      `sales-report-${Date.now()}.pdf`
+      endDate
     );
 
-    res.download(filePath); // send PDF as download
+    res.download(filePath);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
