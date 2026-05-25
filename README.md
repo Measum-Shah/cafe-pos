@@ -271,26 +271,6 @@ This system can be useful for:
 
 ---
 
-## GitHub Repository
-
-Add your GitHub repository link here:
-
-```bash
-https://github.com/your-username/your-repository-name
-```
-
----
-
-## Access / Demo
-
-Add your live access or demo link here:
-
-```bash
-https://your-demo-link.com
-```
-
----
-
 ## Author
 
 Developed by **Measum Shah**
